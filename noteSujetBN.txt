@@ -1,0 +1,53 @@
+Une soirée est composé de 3 partie maximum :
+	- Apero ==> BAR
+	- Repas ==> RESTAURANT
+	- After ==> BAR ou BOITE DE NUIT
+
+
+==============================================================
+
+ADMINISTRATEUR :
+
+Président BDE = admin
+
+Ses droit :
+	-Créer une nouvelle soirée.
+	-Indique une date de cette soirée.
+	-Il peut crée 4 configuration de soirée : Soumis a un vote.
+		=>Elles sont constitué d'une heure de départ et de fin Pour chaque etape(minimum 1 etape, maximum 3)
+		=>A chaque sélection de batiment(Bar... ect) Il doit aparaitre sur une carte.
+	-Il indique une date d'ouverture et une de cloture pour les votes de la soirée.
+	-Il peut laisser une note a chaque configuration
+	-Espace analytic pour voir les soirée proposer, leur etat(admis ou non), les votes en cours.
+
+=========================================================================
+MEMBRE DU BDE
+
+Besoin d'une identification.
+
+Ses droit:
+	-Il a un visu sur les propositions et peut selectionner celle ou il veut voter.
+	-Pour chaque soirée il vote parmis les 4 proposition(max) disponible et voit la date de cloture du vote.
+	-Pour chaque configuration(Petit bouton détail) :
+		=> Date debut et fin de chaque etape.
+		=> Le lieu (sur carte) de chaque étape.
+		=> Type de l'etape.
+		=> (Option sur le téléchargement #PasCompris)
+	
+	-Il vote une fois et son vote n'est pas modifiable.
+	-Si cloture des votes passé, il peut voir les résultats.
+	-Si evenement accepté alors possibilité de telecharger une fichier ICS Pour ajouter a un agenda.
+
+====================================================================
+
+Données :
+
+Un lieu = une NODE :
+	-Données GPS en lat et lon.
+	-Attribut supplémentaire :
+		-amnety = type de lieu.
+		-name = nom du lieu.
+		-website = site web.
+		-addr:housenumber/addr:street/addr:postcode = addresse postale.
+		-cuisine = type de restaurant (si c'est un restau)
+		-opening_hours = Heures d'ouvertures
