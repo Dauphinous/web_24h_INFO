@@ -15,11 +15,12 @@
       <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
 
-      <header>    
+      <header>
+           <h1 class="center-align">Bienvenue sur votre outil de gestion festif !</h1>
       </header>
 
       <div class="row">
-          <form class="col s12">
+          <form class="col s12" action="connexion.php" method="post">
             <div class="row">
               <div class="input-field col s2 offset-s10">
                 <input id="login" type="text" class="validate">
@@ -31,10 +32,8 @@
               </div>
             </div>
           </form>
-          <a class="waves-effect waves-light btn col s1 offset-s10">button</a>
+          <input class="waves-effect waves-light btn col s1 offset-s10" type="submit" value="button"/>
       </div>
-
-
 
 
       <footer class="page-footer">
