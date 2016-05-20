@@ -1,6 +1,7 @@
  <!DOCTYPE html>
   <html>
     <head>
+      <meta charset="UTF-8">
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -16,25 +17,27 @@
       <script type="text/javascript" src="js/materialize.min.js"></script>
 
       <header>
-           <h1 class="center-align">Bienvenue sur votre outil de gestion festif !</h1>
-      </header>
+           <h1 class="center-align">Bienvenue sur notre site !</h1>
+      </header>      
 
       <div class="row">
-          <form class="col s12" action="connexion.php" method="post">
-            <div class="row">
-              <div class="input-field col s2 offset-s10">
+          <p class="flow-text col s10 center-align">
+            Avec cet outil, la gestion des évènements festifs devient un jeu d'enfant.
+            Connectez-vous et vous serez automatiquement redirigé vers nos fonctionnalités sur mesure.
+            Bonne continuation !
+          </p>
+          <form action="connexion.php" method="post">
+              <div class="input-field col s2">
                 <input id="login" type="text" class="validate">
                 <label for="login">Nom du nompte</label>
               </div>
-              <div class="input-field col s2 offset-s10">
+              <div class="input-field col s2">
                 <input id="password" type="password" class="validate">
                 <label for="password">Mot de passe</label>
               </div>
-            </div>
           </form>
           <input class="waves-effect waves-light btn col s1 offset-s10" type="submit" value="button"/>
       </div>
-
 
       <footer class="page-footer">
           <div class="container">
