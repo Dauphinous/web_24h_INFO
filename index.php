@@ -36,7 +36,7 @@
                 <label for="password">Mot de passe</label>
               </div>
           </form>
-          <input class="waves-effect waves-light btn col s1 offset-s10" type="submit" value="button"/>
+          <input class="waves-effect waves-light btn col s1.5 offset-s10" type="submit" value="Connexion"/>
       </div>
 
       <footer class="page-footer">
