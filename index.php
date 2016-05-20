@@ -35,8 +35,8 @@
                 <input id="password" type="password" class="validate">
                 <label for="password">Mot de passe</label>
               </div>
-          </form>
           <input class="waves-effect waves-light btn col s1.5 offset-s10" type="submit" value="Connexion"/>
+          </form>
       </div>
 
       <footer class="page-footer">
