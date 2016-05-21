@@ -20,6 +20,7 @@
                  <h1 class="center-align">Page Admin</h1>
             </header> 
 
+
              <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header"><i class="material-icons">star_rate</i>Liste des soirées</div>
@@ -49,13 +50,51 @@
                 <div class="row">
                 <form class="col s12">
                   <div class="row">
-                    <div class="input-field col s6">
-                      <input id="first_name" type="text" class="validate">
-                      <label for="date">Date de l'évènement</label>
+                    <div class="input-field col s6 ">
+                      <input id="first_name" type="date" class="datepicker">
                     </div>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+                    <li>
+         <div class="input-field col s2">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div>
+                    </li>
+                  </ul>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Resto</div>
+                      <div class="collapsible-body">
+                     <div class="collection">
+                        <a href="#!" class="collection-item">Resto 1</a>
+                        <a href="#!" class="collection-item">Resto 2</a>
+                        <a href="#!" class="collection-item">Resto 3</a>
+                        <a href="#!" class="collection-item">Resto 4</a>
+                      </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Dodo ?</div>
+                      <div class="collapsible-body">
+                     <div class="collection">
+                        <a href="#!" class="collection-item">After 1</a>
+                        <a href="#!" class="collection-item">After 2</a>
+                        <a href="#!" class="collection-item">After 3</a>
+                        <a href="#!" class="collection-item">After 4</a>
+                      </div>
+                      </div>
+                    </li>
+                  </ul>
             </div>
           </li>
-        </ul>  
+        </ul> 
 
 
             <footer class="page-footer">

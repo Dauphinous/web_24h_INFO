@@ -28,11 +28,11 @@
           </p>
           <form action="connexion.php" method="post">
               <div class="input-field col s2">
-                <input id="login" type="text" class="validate">
+                <input name="login" type="text" class="validate">
                 <label for="login">Nom du nompte</label>
               </div>
               <div class="input-field col s2">
-                <input id="password" type="password" class="validate">
+                <input name="password" type="password" class="validate">
                 <label for="password">Mot de passe</label>
               </div>
           <input class="waves-effect waves-light btn col s1.5 offset-s10" type="submit" value="Connexion"/>
