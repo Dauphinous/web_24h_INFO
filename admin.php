@@ -55,37 +55,39 @@
                     </div>
                   <ul class="collapsible col s2" data-collapsible="accordion">
 
-                  <select class="browser-default" name="apero">
-                    <option value="0">Apero 1</option>
-                    <option value="1">Apero 2</option>
-                    <option value="2">Apero 3</option>
-                    <option value="3">Pas d'apéro !</option>
+                  <select id="id_apero" class="browser-default" name="apero">
+                    <option value="0">Pas d'apéro !</option>
+                    <option value="1">Apero 1</option>
+                    <option value="2">Apero 2</option>
+                    <option value="3">Apero 3</option>
                   </select>
 
                   </ul>
                   <ul class="collapsible col s2" data-collapsible="accordion">
                     <li>    
-                      <select class="browser-default" name="resto">
-                        <option value="0">Resto 1</option>
-                        <option value="1">Resto 2</option>
-                        <option value="2">Resto 3</option>
-                        <option value="3">On mange pas !</option>
+                      <select id="id_resto" class="browser-default" name="resto">
+                        <option value="0">On mange pas !</option>
+                        <option value="1">Resto 1</option>
+                        <option value="2">Resto 2</option>
+                        <option value="3">Resto 3</option>
                       </select>
                     </li>
                   </ul>
                   <ul class="collapsible col s2" data-collapsible="accordion">
                     <li>              
-                      <select class="browser-default" name="after">
-                        <option value="0">After 1</option>
-                        <option value="1">After 2</option>
-                        <option value="2">After 3</option>
-                        <option value="3">Pas d'after, y'a DS le lendemain :(</option>
+                      <select id="id_after" class="browser-default" name="after">
+                        <option value="0">Pas d'after, y'a DS le lendemain :(</option>
+                        <option value="1">After 1</option>
+                        <option value="2">After 2</option>
+                        <option value="3">After 3</option>
                       </select>   
                     </li>
                   </ul>
             </div>
+                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_valid()">Continuer</a>
           </li>
         </ul> 
+
 
 
             <footer class="page-footer">
@@ -99,5 +101,30 @@
                   </div>
                 </div>
             </footer>
+
+            <script>
+            
+              function check_valid()
+              {
+                check_soiree();
+                check_date();
+              }
+
+              function check_soiree() {
+                if (document.getElementById("id_apero").value == "0" &&
+                document.getElementById("id_resto").value == "0" &&
+                document.getElementById("id_after").value == "0")
+                  {
+                    Materialize.toast('Aucun évènement choisi !', 4000) // 4000 is the duration of the toast     
+                  }
+               }
+
+               function check_date()
+               {
+                if(document.getElementById("first_name").value =="") {
+                    Materialize.toast('Veillez choisir une date', 4000) // 4000 is the duration of the toast     
+                }
+               }
+            </script>
           </body>
         </html>
