@@ -54,42 +54,33 @@
                       <input id="first_name" type="date" class="datepicker">
                     </div>
                   <ul class="collapsible col s2" data-collapsible="accordion">
-                    <li>
-         <div class="input-field col s2">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
-  </div>
+
+                  <select class="browser-default" name="apero">
+                    <option value="0">Apero 1</option>
+                    <option value="1">Apero 2</option>
+                    <option value="2">Apero 3</option>
+                    <option value="3">Pas d'apéro !</option>
+                  </select>
+
+                  </ul>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+                    <li>    
+                      <select class="browser-default" name="resto">
+                        <option value="0">Resto 1</option>
+                        <option value="1">Resto 2</option>
+                        <option value="2">Resto 3</option>
+                        <option value="3">On mange pas !</option>
+                      </select>
                     </li>
                   </ul>
                   <ul class="collapsible col s2" data-collapsible="accordion">
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Resto</div>
-                      <div class="collapsible-body">
-                     <div class="collection">
-                        <a href="#!" class="collection-item">Resto 1</a>
-                        <a href="#!" class="collection-item">Resto 2</a>
-                        <a href="#!" class="collection-item">Resto 3</a>
-                        <a href="#!" class="collection-item">Resto 4</a>
-                      </div>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="collapsible col s2" data-collapsible="accordion">
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Dodo ?</div>
-                      <div class="collapsible-body">
-                     <div class="collection">
-                        <a href="#!" class="collection-item">After 1</a>
-                        <a href="#!" class="collection-item">After 2</a>
-                        <a href="#!" class="collection-item">After 3</a>
-                        <a href="#!" class="collection-item">After 4</a>
-                      </div>
-                      </div>
+                    <li>              
+                      <select class="browser-default" name="after">
+                        <option value="0">After 1</option>
+                        <option value="1">After 2</option>
+                        <option value="2">After 3</option>
+                        <option value="3">Pas d'after, y'a DS le lendemain :(</option>
+                      </select>   
                     </li>
                   </ul>
             </div>
