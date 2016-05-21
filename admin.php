@@ -49,25 +49,42 @@
 
                     }
 
+
                     catch (Exception $e) {
                         die("Erreur : " . $e->getMessage());
                     }
+                try {
+
+                    $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dblogin, $dbpassword);
+                    $query = $db->prepare("SELECT nom, prenom, id_personne FROM Utilisateur");
+                    $query->execute();
+                    echo"</div>";
+                    echo "</div>";
+                    echo "</li>";
+                    echo "<li>";
+                    echo "<div class=\"collapsible-header\"><i class=\"material-icons\">supervisor_account</i>Liste du BDE</div>";
+                    echo "<div class=\"collapsible-body\">";
+                    echo "<div class=\"collection\">";
+
+
+
+                    while ($data = $query->fetch()) {
+                        echo "<a href=informationUtilisateur.php?utilisateur=". $data['id_personne'] ."\" class=\"collection-item\"> Nom : ". $data['nom'] ." Prenom : " . $data['prenom'] ."</a>";
+                    }
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</li>";
+
+                }
+
+
+                catch (Exception $e) {
+                    die("Erreur : " . $e->getMessage());
+                }
+
 
                 ?>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Liste du BDE</div>
-        <div class="collapsible-body">
-            <div class="collection">
-                <a href="#!" class="collection-item">Membre 1</a>
-                <a href="#!" class="collection-item">Membre 2</a>
-                <a href="#!" class="collection-item">Membre 3</a>
-                <a href="#!" class="collection-item">Membre 4</a>
-            </div>
-        </div>
-    </li>
+
     <li>
         <div class="collapsible-header"><i class="material-icons">play_circle_outline</i>Organiser un évènement</div>
         <div class="collapsible-body">
