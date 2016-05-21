@@ -32,16 +32,35 @@
 
                     try {
                         $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dblogin, $dbpassword);
-                        $query = $db->prepare("SELECT * FROM Proposition WHERE id_proposition=:proposition");
+                        $query = $db->prepare("SELECT * FROM Evenement WHERE proposition_associee=:proposition");
                         $query->execute(array("proposition"=>$proposition));
-                        echo $proposition;
+                        $id = 0;
+
                         echo "<ul class=\"collection\">";
                         while ($data = $query->fetch()) {
-                              echo "<li class=\"collection-item\"> date d'ouverture : ". $data['date_ouverture'] . "</li>";
-                              echo "<li class=\"collection-item\"> date de fermeture : " . $data['date_fin'] . "</li>";
-                              echo "<li class=\"collection-item\">label : " . $data['nom'] ."</li>";
+                            echo "<li class=\"collection-item\"> date d'ouverture : ". $data['heure_debut'] . "</li>";
+                            echo "<li class=\"collection-item\"> date de fermeture : " . $data['heure_fin'] . "</li>";
+                            echo "<li class=\"collection-item\">label : " . $data['nom'] ."</li>";
+                              $id= $data['id_event'];
+                            $query2 = $db->prepare("SELECT * FROM Etape WHERE id_evenement=:id");
+                            $query2->execute(array("id"=>$id));
+                            while ($data = $query2->fetch()) {
+                                echo "<ul class=\"collection\">";
+                                echo "<li class=\"collection-item\"> Heure de début : ". $data['heure_debut'] . "</li>";
+                                echo "<li class=\"collection-item\"> Heure de fin : " . $data['heure_fin'] . "</li>";
+                                echo "<li class=\"collection-item\">informations supplémentaires : " . $data['infos_sup'] ."</li>";
+                                echo "<li class=\"collection-item\">type : " . $data['type'] ."</li>";
+                                echo "</ul>";
+                            }
+                            echo "<br>";
                         }
                         echo "</ul>";
+
+
+
+
+
+
                     }
 
                     catch (Exception $e) {

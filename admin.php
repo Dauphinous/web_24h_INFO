@@ -85,47 +85,62 @@
 
                 ?>
 
-    <li>
-        <div class="collapsible-header"><i class="material-icons">play_circle_outline</i>Organiser un évènement</div>
-        <div class="collapsible-body">
-            <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6 ">
-                      <input id="first_name" type="date" class="datepicker">
-                    </div>
-                  <ul class="collapsible col s2" data-collapsible="accordion">
 
-                  <select id="id_apero" class="browser-default" name="apero">
-                    <option value="0">Pas d'apéro !</option>
-                    <option value="1">Apero 1</option>
-                    <option value="2">Apero 2</option>
-                    <option value="3">Apero 3</option>
-                  </select>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">play_circle_outline</i>Organiser un évènement</div>
+              <div class="collapsible-body">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s3">
+                                <input id="first_name" type="date" class="datepicker"/>
+                            </div>
+                            <form action="#">
+                                <p class="col s2">
+                                    <input type="checkbox" id="apero" />
+                                    <label for="test5">Apero</label>
+                                </p>
+                                <p class="col s2">
+                                    <input type="checkbox" id="resto" />
+                                    <label for="test5">Resto</label>
+                                </p>
+                                <p class="col s2">
+                                    <input type="checkbox" id="after" />
+                                    <label for="test5">After</label>
+                                </p>
+                            </form>
+                            <ul class="collapsible col s2" data-collapsible="accordion">
+                                <li>
+                                    <select id="id_after" class="browser-default" name="after">
+                                        <option value="0" disabled selected>Lieu de l'évènement</option>
+                                        <?
+                                        $proposition = $_GET['proposition'];
+                                        $dbhost = "publicsql-1.pulseheberg.net";
+                                        $dbname = "service_42785";
+                                        $dblogin = "service_42785";
+                                        $dbpassword = "9hf6G2bR2r";
 
-                  </ul>
-                  <ul class="collapsible col s2" data-collapsible="accordion">
-                    <li>    
-                      <select id="id_resto" class="browser-default" name="resto">
-                        <option value="0">On mange pas !</option>
-                        <option value="1">Resto 1</option>
-                        <option value="2">Resto 2</option>
-                        <option value="3">Resto 3</option>
-                      </select>
-                    </li>
-                  </ul>
-                  <ul class="collapsible col s2" data-collapsible="accordion">
-                    <li>              
-                      <select id="id_after" class="browser-default" name="after">
-                        <option value="0">Pas d'after, y'a DS le lendemain :(</option>
-                        <option value="1">After 1</option>
-                        <option value="2">After 2</option>
-                        <option value="3">After 3</option>
-                      </select>   
-                    </li>
-                  </ul>
+                                        $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dblogin, $dbpassword);
+                                        $query = $db->prepare("SELECT * FROM Lieu");
+                                        $query->execute();
+                                        $id = 0;
+                                        echo "<ul class=\"collection\">";
+                                        $i = 1;
+                                        while ($data = $query->fetch()) {
+                                            echo "<option value=". $i . "\">". $data["nom"] ."</option>";
+                                            $i = $i+1;
+                                        }
+                                        ?>
+
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+                <a class="waves-effect waves-light btn col s2 offset-s9" onclick="check_valid()">Continuer</a>
+            </div>            
             </div>
-                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_valid()">Continuer</a>
           </li>
         </ul> 
 
@@ -156,16 +171,28 @@
                 document.getElementById("id_resto").value == "0" &&
                 document.getElementById("id_after").value == "0")
                   {
-                    Materialize.toast('Aucun évènement choisi !', 4000) // 4000 is the duration of the toast     
+                    Materialize.toast('Aucun évènement choisi !', 4000); // 4000 is the duration of the toast     
                   }
                }
 
                function check_date()
                {
                 if(document.getElementById("first_name").value =="") {
-                    Materialize.toast('Veillez choisir une date', 4000) // 4000 is the duration of the toast     
+                    Materialize.toast('Veuillez choisir une date', 4000); // 4000 is the duration of the toast     
+                }
+                else {
+                  var date = document.getElementById("first_name").value.split('-');
+                  var dateActuelle = new Date();
+                  if (parseInt(date[0], 10) < dateActuelle.getYear()
+                    || parseInt(date[1],10) < dateActuelle.getMonth()
+                    || parseInt(date[2], 10) < dateActuelle.getDay()) {
+                    Materialize.toast('Cette date est incorrecte', 4000); // 4000 is the duration of the toast  
+                  }
                 }
                }
-            </script>
-          </body>
-        </html>
+
+
+
+     </script>
+  </body>
+</html>

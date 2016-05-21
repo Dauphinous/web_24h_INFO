@@ -41,37 +41,33 @@ try {
         echo "<li class=\"collection-item\">login : " . $data['login'] ."</li>";
         echo "<li class=\"collection-item\">password : " . $data['password'] ."</li>";
         echo "<div class=\"row\">";
-    echo "<form class=\"col s12\">;
-      echo <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-    </form>
-  </div>
+
+        echo "<form action=\"modifierInformation.php?utilisateur=". $data['id_personne'] ."\" method=\"post\">";
+        echo "<div>";
+        echo "<label for=\"nomLabel\">Nom :</label>";
+        echo "<input type=\"text\" name=\"nom\" id=\"nom\" value=".$data['nom'] ."/>";
+        echo "</div>";
+        echo "<div>";
+        echo "<label for=\"prenomLabel\">prenom :</label>";
+        echo "<input type=\"prenom\" name=\"prenom\" id=\"prenom\" value=" . $data['prenom'] . "\" />";
+        echo "</div>";
+        echo "<div>";
+        echo "<label for=\"loginLabel\">login :</label>";
+        echo "<input type=\"login\" name=\"login\" id=\"login\" value=" . $data['login'] . "\" />";
+        echo "</div>";
+        echo "<div>";
+        echo "<label for=\"passwordLabel\">password :</label>";
+        echo "<input type=\"password\" name=\"password\" id=\"password\" value=" . $data['password'] . "\" />";
+        echo "</div>";
+        echo "<div>";
+        echo "<label for=\"rangLabel\">rang :</label>";
+        echo "<input type=\"rang\" name=\"rang\" id=\"rang\" value=" . $data['rang'] . "\" />";
+        echo "</div>";
+
+       echo " <div class=\"buttonLabel\">";
+        echo "<button type=\"submit\">modifier</button>";
+        echo "</div>";
+        echo "</form>";
 
     }
     echo "</ul>";
