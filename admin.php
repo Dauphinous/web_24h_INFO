@@ -105,7 +105,7 @@
                     </li>
                   </ul>
             </div>
-                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_date()">Continuer</a>
+                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_valid()">Continuer</a>
           </li>
         </ul> 
 
@@ -124,6 +124,13 @@
             </footer>
 
             <script>
+
+              function check_valid()
+              {
+                check_soiree();
+                check_date();
+              }
+
               function check_soiree() {
                 if (document.getElementById("id_apero").value == "0" &&
                 document.getElementById("id_resto").value == "0" &&
