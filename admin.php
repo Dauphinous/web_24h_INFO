@@ -26,10 +26,31 @@
             <div class="collapsible-header"><i class="material-icons">star_rate</i>Liste des soirées</div>
             <div class="collapsible-body">
               <div class="collection">
-                  <a href="#!" class="collection-item">Soirée 1</a>
-                  <a href="#!" class="collection-item">Soirée 2</a>
-                  <a href="#!" class="collection-item">Soirée 3</a>
-                  <a href="#!" class="collection-item">Soirée 4</a>
+                  <?php
+
+                      $dbhost = "publicsql-1.pulseheberg.net";
+                      $dbname = "service_42785";
+                      $dblogin = "service_42785";
+                      $dbpassword = "9hf6G2bR2r";
+
+                      $util_trouve = false;
+                      $nom = "";
+
+                      try {
+                          $db = new PDO("mysql:host=$dbhost;dbname=$dbname", $dblogin, $dbpassword);
+                          $query = $db->prepare("SELECT nom, id_proposition FROM Proposition");
+                          $query->execute();
+
+                          while ($data = $query->fetch()) {
+                              $util_trouve = true;
+                              $nom = $data['nom'];
+                              echo "<a href=\"InformationEvenement.php?proposition=".$data['id_proposition']."\" class=\"collection-item\">". $nom . "<a/>";
+                          }
+                      }
+                      catch (Exception $e) {
+                          die("Erreur : " . $e->getMessage());
+                      }
+                  ?>
                </div>   
             </div>
           </li>
@@ -84,7 +105,7 @@
                     </li>
                   </ul>
             </div>
-                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_valid()">Continuer</a>
+                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_date()">Continuer</a>
           </li>
         </ul> 
 
@@ -103,13 +124,6 @@
             </footer>
 
             <script>
-            
-              function check_valid()
-              {
-                check_soiree();
-                check_date();
-              }
-
               function check_soiree() {
                 if (document.getElementById("id_apero").value == "0" &&
                 document.getElementById("id_resto").value == "0" &&
