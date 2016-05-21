@@ -90,63 +90,82 @@
         <div class="collapsible-body">
             <div class="row">
                 <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6 ">
-                            <input id="first_name" type="date" class="datepicker">
-                        </div>
-                        <ul class="collapsible col s2" data-collapsible="accordion">
-                            <li>
-                                <div class="input-field col s2">
-                                    <select>
-                                        <option value="" disabled selected>Choose your option</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label>Materialize Select</label>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="collapsible col s2" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Resto</div>
-                                <div class="collapsible-body">
-                                    <div class="collection">
-                                        <a href="#!" class="collection-item">Resto 1</a>
-                                        <a href="#!" class="collection-item">Resto 2</a>
-                                        <a href="#!" class="collection-item">Resto 3</a>
-                                        <a href="#!" class="collection-item">Resto 4</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="collapsible col s2" data-collapsible="accordion">
-                            <li>
-                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Dodo ?</div>
-                                <div class="collapsible-body">
-                                    <div class="collection">
-                                        <a href="#!" class="collection-item">After 1</a>
-                                        <a href="#!" class="collection-item">After 2</a>
-                                        <a href="#!" class="collection-item">After 3</a>
-                                        <a href="#!" class="collection-item">After 4</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                  <div class="row">
+                    <div class="input-field col s6 ">
+                      <input id="first_name" type="date" class="datepicker">
                     </div>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+
+                  <select id="id_apero" class="browser-default" name="apero">
+                    <option value="0">Pas d'apéro !</option>
+                    <option value="1">Apero 1</option>
+                    <option value="2">Apero 2</option>
+                    <option value="3">Apero 3</option>
+                  </select>
+
+                  </ul>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+                    <li>    
+                      <select id="id_resto" class="browser-default" name="resto">
+                        <option value="0">On mange pas !</option>
+                        <option value="1">Resto 1</option>
+                        <option value="2">Resto 2</option>
+                        <option value="3">Resto 3</option>
+                      </select>
+                    </li>
+                  </ul>
+                  <ul class="collapsible col s2" data-collapsible="accordion">
+                    <li>              
+                      <select id="id_after" class="browser-default" name="after">
+                        <option value="0">Pas d'after, y'a DS le lendemain :(</option>
+                        <option value="1">After 1</option>
+                        <option value="2">After 2</option>
+                        <option value="3">After 3</option>
+                      </select>   
+                    </li>
+                  </ul>
+            </div>
+                <a class="waves-effect waves-light btn col s2 offset-s8" onclick="check_valid()">Continuer</a>
+          </li>
+        </ul> 
 
 
 
-<footer class="page-footer">
-    <div class="container">
-        <div class="row">
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            2016 Copyright
-        </div>
-    </div>
-</footer>
-</body>
-</html>
+            <footer class="page-footer">
+                <div class="container">
+                  <div class="row">
+                  </div>
+                </div>
+                <div class="footer-copyright">
+                  <div class="container">
+                     2016 Copyright
+                  </div>
+                </div>
+            </footer>
+
+            <script>
+
+              function check_valid()
+              {
+                check_soiree();
+                check_date();
+              }
+
+              function check_soiree() {
+                if (document.getElementById("id_apero").value == "0" &&
+                document.getElementById("id_resto").value == "0" &&
+                document.getElementById("id_after").value == "0")
+                  {
+                    Materialize.toast('Aucun évènement choisi !', 4000) // 4000 is the duration of the toast     
+                  }
+               }
+
+               function check_date()
+               {
+                if(document.getElementById("first_name").value =="") {
+                    Materialize.toast('Veillez choisir une date', 4000) // 4000 is the duration of the toast     
+                }
+               }
+            </script>
+          </body>
+        </html>
